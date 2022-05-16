@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { css } from "styled-components";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,3 +17,10 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+export const fontsCSS = css`
+  @font-face {
+    @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+  }
+`;

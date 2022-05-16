@@ -1,22 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import DescriptionTab from './components/tabs/DescriptionTab';
+import React from 'react';
+import LoadingView from './components/loading_view/LoadingView';
+import ExpandableView from './components/expandable/ExpandableView';
+
+const DemoView = () => {
+  return (
+    LoadingView({ url: 'https://reqres.in/api/users/1?delay=1', successView: DescriptionTab({ serviceId: 200 }) })
+  )
+}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ExpandableView initiallyExpanded={true} view={DemoView()} title='Details' />
+        <ExpandableView initiallyExpanded={false} view={DemoView()} title='Price' />
+        <ExpandableView initiallyExpanded={false} view={DemoView()} title='Screenshot' />
       </header>
     </div>
   );
