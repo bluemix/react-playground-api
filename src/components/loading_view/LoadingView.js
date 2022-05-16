@@ -8,16 +8,10 @@ import useAxios from 'axios-hooks';
 import ExpandableView from '../expandable/ExpandableView';
 
 
-function LoadingView(props, { url, successView}) {
+function LoadingView({ url, successView, callback }) {
     const [isError, setIsError] = useState(false);
 
     const [{ data, loading, error, response }, refetch] = useAxios(url);
-
-    useEffect(() => {
-        // console.log(`this.children: ${props.children}`)
-        console.log(`successView: ${ successView}`)
-        console.log(`typeof successView: ${typeof successView}`)
-      }, [data]);
 
     return (
         <>
@@ -27,11 +21,7 @@ function LoadingView(props, { url, successView}) {
                 </S.AnimatedVisibility>
 
                 <S.AnimatedVisibility visible={!loading}>
-                    {/* {props.children} */}
-                    {/* {successView(data)} */}
-                    {successView }
-                    {/* {callback} */}
-                    {/* {callback} */}
+                    {successView}
                 </S.AnimatedVisibility>
             </S.Center>
         </>
@@ -41,10 +31,8 @@ function LoadingView(props, { url, successView}) {
 
 LoadingView.propTypes = {
     url: PropTypes.string.isRequired,
-    props: PropTypes.node,
-    // children: PropTypes.node.isRequired,
-    successView: PropTypes.func.isRequired,
-    // callback: PropTypes.func.isRequired,
+    successView: PropTypes.object.isRequired,
+    callback: PropTypes.func.isRequired,
 }
 
 export default LoadingView
