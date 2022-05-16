@@ -8,10 +8,20 @@ import useAxios from 'axios-hooks';
 import ExpandableView from '../expandable/ExpandableView';
 
 
-function LoadingView({ url, successView, callback }) {
+function LoadingView({ url, successView }) {
     const [isError, setIsError] = useState(false);
 
     const [{ data, loading, error, response }, refetch] = useAxios(url);
+
+    useEffect(() => {
+
+        console.log(`LoadingView, data: ${JSON.stringify(error, null, 2)}`)
+        console.log(`LoadingView, loading: ${loading}`)
+        console.log(`LoadingView, response: ${response}`)
+
+        console.log(`LoadingView, response.data: ${JSON.stringify(response?.data, null, 2)}`)
+        // console.log(`typeof url: ${typeof props.url}`)
+      }, [loading,]);
 
     return (
         <>
@@ -20,8 +30,20 @@ function LoadingView({ url, successView, callback }) {
                     <S.CircularLoader />
                 </S.AnimatedVisibility>
 
+                {/* { _data } */}
+
                 <S.AnimatedVisibility visible={!loading}>
-                    {successView}
+                    {/* {(<>SuccessView()</>)} */}
+                    {/* {(<>{() => SuccessView ({data: {}})}</>)} */}
+                    {/* {(<><successView /></>)} */}
+                    {/* {(<>{successView}</>)} */}
+                    {/* {(<>{props.successView({data: () => {'a1'}})}</>)} */}
+                    {(<>{successView({data: response?.data})}</>)}
+                    {/* {(<>{successView({data: ()=>{'a1'})}</>)} */}
+                    {/* {<SuccessView data={() => {'a1'}}/>} */}
+                    {/* {(<><SuccessView /></>)} */}
+                    {/* <><SuccessView data={() => {'a1'}}/></> */}
+                    {/* <successView data={() => {}}/> */}
                 </S.AnimatedVisibility>
             </S.Center>
         </>
@@ -31,8 +53,7 @@ function LoadingView({ url, successView, callback }) {
 
 LoadingView.propTypes = {
     url: PropTypes.string.isRequired,
-    successView: PropTypes.object.isRequired,
-    callback: PropTypes.func.isRequired,
+    successView: PropTypes.func.isRequired,
 }
 
 export default LoadingView

@@ -23,10 +23,10 @@ ColumnItem.propTypes = {
   subtitle: PropTypes.string.isRequired,
 }
 
-const DescriptionTab = (props, { serviceId }) => {
+const DescriptionTab = (props,) => {
 
   useEffect(() => {
-    console.log(`props.data: ${props.data}`)
+    console.log(`DescriptionTab, props.data: ${props.data}`)
   }, []);
 
   return (
@@ -66,7 +66,7 @@ const DescriptionTab = (props, { serviceId }) => {
 }
 
 DescriptionTab.propTypes = {
-  serviceId: PropTypes.number.isRequired,
+  // serviceId: PropTypes.number.isRequired,
   data: PropTypes.object.isRequired,
 }
 
