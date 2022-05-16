@@ -23,11 +23,11 @@ ColumnItem.propTypes = {
   subtitle: PropTypes.string.isRequired,
 }
 
-const DescriptionTab = (props,) => {
+const DescriptionTabView = (props,) => {
 
   useEffect(() => {
     console.log(`DescriptionTab, props.data: ${props.data}`)
-  }, []);
+  }, [props.data]);
 
   return (
     <>
@@ -65,9 +65,9 @@ const DescriptionTab = (props,) => {
   )
 }
 
-DescriptionTab.propTypes = {
+DescriptionTabView.propTypes = {
   // serviceId: PropTypes.number.isRequired,
   data: PropTypes.object.isRequired,
 }
 
-export default DescriptionTab
+export default DescriptionTabView

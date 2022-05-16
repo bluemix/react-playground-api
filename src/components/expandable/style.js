@@ -50,7 +50,7 @@ export const Block = styled.div`
 `
 
 export const ToggleButton = styled.button`
-  font-size: 60%;
+  font-size: 1em;
   border: 1px solid #ccc;
   background: transparent;
   box-shadow: none;
