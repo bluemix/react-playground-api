@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import * as S from './style';
 import PropTypes from 'prop-types';
@@ -23,7 +23,11 @@ ColumnItem.propTypes = {
   subtitle: PropTypes.string.isRequired,
 }
 
-const DescriptionTab = ({ serviceId }) => {
+const DescriptionTab = (props, { serviceId }) => {
+
+  useEffect(() => {
+    console.log(`props.data: ${props.data}`)
+  }, []);
 
   return (
     <>
@@ -63,6 +67,7 @@ const DescriptionTab = ({ serviceId }) => {
 
 DescriptionTab.propTypes = {
   serviceId: PropTypes.number.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
 export default DescriptionTab
