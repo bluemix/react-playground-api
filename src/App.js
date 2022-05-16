@@ -9,7 +9,8 @@ const DescriptionTab = ({serviceId}) => {
   return (
     <LoadingView
       url={`https://reqres.in/api/users/${serviceId}?delay=1`}
-      // url={`https://reqres.in/api/unknown/${serviceId}?delay=1`}
+      // error content:
+      // url={`https://reqres.in/api/unknown/${serviceId}?delay=1`} 
       successView={DescriptionTabView}
     />
   )
