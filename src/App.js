@@ -6,7 +6,14 @@ import ExpandableView from './components/expandable/ExpandableView';
 
 const DemoView = () => {
   return (
-    LoadingView({ url: 'https://reqres.in/api/users/1?delay=1', successView: DescriptionTab({ serviceId: 200 }) })
+    LoadingView({
+      url: 'https://reqres.in/api/users/1?delay=1',
+      successView: DescriptionTab({ serviceId: 200 }),
+      callback: (data) => {
+        // console.log(`data: ${data}`)
+        // <>Hello</>
+      }
+    })
   )
 }
 

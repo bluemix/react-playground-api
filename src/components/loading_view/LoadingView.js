@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect} from 'react';
 
 import * as S from './style';
 import PropTypes from 'prop-types';
@@ -13,6 +13,10 @@ function LoadingView({ url, successView, callback }) {
 
     const [{ data, loading, error, response }, refetch] = useAxios(url);
 
+    useEffect(() => {
+        callback(data)
+      }, [data]);
+
     return (
         <>
             <S.Center>
@@ -22,6 +26,8 @@ function LoadingView({ url, successView, callback }) {
 
                 <S.AnimatedVisibility visible={!loading}>
                     {successView}
+                    {/* {callback} */}
+                    {/* {callback} */}
                 </S.AnimatedVisibility>
             </S.Center>
         </>
