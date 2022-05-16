@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 const DescriptionTab = ({serviceId}) => {
   return (
     <LoadingView
-      // url={`https://reqres.in/api/users/${serviceId}?delay=1`}
-      url={`https://reqres.in/api/unknown/${serviceId}?delay=1`}
+      url={`https://reqres.in/api/users/${serviceId}?delay=1`}
+      // url={`https://reqres.in/api/unknown/${serviceId}?delay=1`}
       successView={DescriptionTabView}
     />
   )
@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ExpandableView initiallyExpanded={true} view={ DescriptionTab({serviceId: 23}) } title='Details'/>
+        <ExpandableView initiallyExpanded={true} view={ DescriptionTab({serviceId: 1}) } title='Details'/>
         <ExpandableView initiallyExpanded={false} view={ DescriptionTab({serviceId: 2}) } title='Price'/>
         <ExpandableView initiallyExpanded={false} view={ DescriptionTab({serviceId: 3}) } title='Screenshot'/>
       </header>
